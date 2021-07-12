@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { FriendListItem } from "./FriendListItem";
 import { FriendLst } from "./FriendList.styles";
 
@@ -14,4 +15,8 @@ export const FriendList = ({ friends }) => {
       ))}
     </FriendLst>
   );
+};
+
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf.isRequired,
 };

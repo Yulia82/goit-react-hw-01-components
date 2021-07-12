@@ -1,23 +1,33 @@
 import PropTypes from "prop-types";
 import { Title } from "../Title.styles";
-import { Statistic } from "./Statistics.styles";
+import { ItemStat, Statlist, Statistic } from "./Statistics.styles";
+import { randomColor } from "../../utils/random-color";
+import { StatisticItem } from "./Statistics-item";
 
-export const Statistics = ({ title, children }) => {
+export const Statistics = ({ title, stats }) => {
   return (
     <Statistic>
       {title && <Title>{title}</Title>}
 
-      {children}
+      <Statlist>
+        {stats.map(({ id, label, percentage }) => {
+          const colorItem = randomColor();
+          return (
+            <ItemStat key={id} colorLi={colorItem}>
+              <StatisticItem label={label} percentage={percentage} />
+            </ItemStat>
+          );
+        })}
+      </Statlist>
     </Statistic>
   );
 };
 
-Statistics.defaultProps = {
-  title: "",
-  children: [],
-};
-
 Statistics.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  ),
 };

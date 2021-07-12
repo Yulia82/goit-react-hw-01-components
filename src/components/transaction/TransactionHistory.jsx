@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { TransactionItem } from "./TransactionItem";
 import { TransactionHist, TheadStyle } from "./TransactionHistory.styles";
 
@@ -24,4 +25,8 @@ export const TransactionHistory = ({ items }) => {
       </tbody>
     </TransactionHist>
   );
+};
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

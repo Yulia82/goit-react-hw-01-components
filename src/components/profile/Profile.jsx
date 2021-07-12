@@ -12,15 +12,7 @@ import {
   Label,
 } from "./Profile.styles";
 
-export const Profile = ({
-  name,
-  tag,
-  location,
-  followers,
-  views,
-  likes,
-  src,
-}) => {
+export const Profile = ({ name, tag, location, src, stats }) => {
   return (
     <Container>
       <Description>
@@ -37,15 +29,15 @@ export const Profile = ({
       <Stats>
         <Item>
           <Label>Followers</Label>
-          <Quantity>{followers}</Quantity>
+          <Quantity>{stats.followers}</Quantity>
         </Item>
         <Item>
           <Label>Views</Label>
-          <Quantity>{views}</Quantity>
+          <Quantity>{stats.views}</Quantity>
         </Item>
         <Item>
           <Label>Likes</Label>
-          <Quantity>{likes}</Quantity>
+          <Quantity>{stats.likes}</Quantity>
         </Item>
       </Stats>
     </Container>

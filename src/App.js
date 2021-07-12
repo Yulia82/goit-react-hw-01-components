@@ -2,7 +2,6 @@ import user from "./components/profile/user.json";
 import { Profile } from "./components/profile/Profile";
 
 import statistical from "./components/statistics/statistical-data.json";
-import { StatisticList } from "./components/statistics/Statistic-list";
 import { Statistics } from "./components/statistics/Statistics";
 
 import { FriendList } from "./components/friendList/FriendList";
@@ -18,17 +17,11 @@ function App() {
         name={user.name}
         tag={user.tag}
         location={user.location}
-        followers={user.stats.followers}
-        views={user.stats.views}
-        likes={user.stats.likes}
         src={user.avatar}
+        stats={user.stats}
       />
-      <>
-        <Statistics title="Upload stats">
-          <StatisticList stats={statistical} />
-        </Statistics>
-      </>
-      <FriendList friends={friends}></FriendList>
+      <Statistics title="Upload stats" stats={statistical} />
+      <FriendList friends={friends} />
       <TransactionHistory items={transactions} />;
     </>
   );
