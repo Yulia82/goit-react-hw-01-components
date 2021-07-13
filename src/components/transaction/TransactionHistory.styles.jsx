@@ -17,7 +17,7 @@ export const TheadStyle = styled.thead`
 export const TrStyle = styled.tr`
   text-align: center;
   height: 50px;
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     background-color: rgba(0, 0, 255, 0.12);
   }
 `;
